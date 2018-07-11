@@ -1,0 +1,301 @@
+<html>
+<head>
+<title>t2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+a:link, a:visited {
+    background-color: lightblue;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: lightgreen;
+}
+button
+{
+background-color:lightblue;
+}
+.pcenter
+{
+height:400px;
+width:300px;
+margin-left: 20%;
+}
+input[type=radio]:not(old){
+  display: inline-block;
+  background-color: green;
+  background-image:url(t5.png);
+  border: 4px solid green;
+  width:30px;
+  height:30px;
+  margin-top: 0px;
+ line-height : 24px;
+}
+#img1
+{
+height: 200px;
+width: 200px;
+margin-bottom: 60px;
+}
+#url
+{
+color: #7F00FF;
+font-size: 25px;
+font-family: Impact, Charcoal, sans-serif;
+}
+
+#rimg
+{
+hight: 20%;
+width: 20%;
+margin-left: 40%;
+margin-top: -20%;
+}
+#wrg
+{
+hight: 40%;
+width: 40%;
+margin-left: 40%;
+margin-top: -20%;
+color: green;
+font-size: 200%;
+}
+.wtxt
+{
+position: absolute;
+margin-top: 10%;
+margin-left: 0px;
+font-family: Impact, Charcoal, sans-serif;
+}
+::-webkit
+{
+#d1, #d2, #d3
+{
+background-color: #FFFF7F;
+width: 400px;
+height: 40px;
+text-align: center;
+margin-top: -30px;
+margin-left: 35px;
+border-bottom: 4px solid #FFAA55;
+z-index: -1;
+}
+}
+#d1, #d2, #d3
+{
+background-color: #FFFF7F;
+width: 80%;
+height: 5%;
+font-size: 200%;
+text-align: center;
+margin-top: -30px;
+margin-left: 35px;
+border-bottom: 4px solid #FFAA55;
+z-index: -1;
+}
+#c1, #c2, #c3
+{
+background-color: green;
+}
+</style>
+<script>
+var nrange;
+var products = new Array()
+var m = location.search.split('b=')[1] ? location.search.split('b=')[1] : "0";
+function loadimg()
+{
+var d = document.getElementById("img1").src = "insect/" + m + ".jpg";
+rvalue();
+}
+
+
+
+
+function rvalue()
+{
+var numberOne = Math.floor(Math.random() * 50);
+var numberTwo = Math.floor(Math.random() * 50);
+if(numberOne == numberTwo)
+{
+var numberTwo = Math.floor(Math.random() * 50);
+}
+if(numberOne == numberTwo)
+{
+numberOne = Math.floor(Math.random() * 50);
+}
+//var insectw = ["Banana", "Orange", "Apple", "Mango", "a", "b", "c", "d"];
+var insectw = ["Ant", "armadillo worm bug", "Bedbug", "bee-", "Bee", "Beetle", "Bug", "butterfly", "Butterfly", "canthigaster-cicada-fulgoromorpha", "canthigaster", "caterpillar-monarch-macro-metamorphosis", "Caterpillar", "cayenne-tick-tick-male-dorsal", "Centipede", "cockroach phylliinae", "Cockroach", "cocoon butterfly", "common fly", "Cricket", "cuckoo-wasp-macro-mounted-metallic-blue", "dragonfly", "Firefly", "Flea", "Fruit fly", "grasshopper image", "grasshopper", "Grasshopper", "House Fly", "housefly", "ladybug beetle coccinellidae", "ladybug beetle", "Locust", "louse", "mantis", "Mosquito", "Moth", "Praying Mantis", "Scorpion", "Spider", "stag beetle", "Stick Insect", "swallow tail butterfly", "Termite", "Tick", "tiger-mosquito-mosquito asian tigermucke", "wasp german", "Wasp", "weevil", "Worm", "Zebra spider"];
+
+
+products[0] = insectw[m];
+var nrange = Math.floor(Math.random() * 3);
+//var nrange = m % 3;
+if(nrange == 0)
+{
+document.getElementById('d1').innerHTML = products[0];
+products[1] = 'c1';
+insectw.splice(m, 1);
+document.getElementById('d2').innerHTML = insectw[numberOne];
+document.getElementById('d3').innerHTML = insectw[numberTwo];
+insectw.splice(m, 0, products[0]);
+}
+else if(nrange == 1)
+{
+document.getElementById('d2').innerHTML = products[0];
+products[1] = 'c2';
+insectw.splice(m, 1);
+document.getElementById('d1').innerHTML = insectw[numberOne];
+document.getElementById('d3').innerHTML = insectw[numberTwo];
+insectw.splice(m, 0, products[0]);
+}
+else if(nrange == 2)
+{
+document.getElementById('d3').innerHTML = products[0];
+products[1] = 'c3';
+insectw.splice(m, 1);
+document.getElementById('d1').innerHTML = insectw[numberOne];
+document.getElementById('d2').innerHTML = insectw[numberTwo];
+insectw.splice(m, 0, products[0]);
+}
+}
+function check1()
+{
+c1 = document.getElementById("c1").id;
+if(c1 == products[1])
+{
+document.getElementById("rimg").style.display = "block";
+}
+else
+{
+document.getElementById("wrg").style.display = "block";
+document.getElementById("wrgtxt").innerHTML = products[0];
+}
+document.getElementById("c1").disabled = true;
+document.getElementById("c2").disabled = true;
+document.getElementById("c3").disabled = true;
+}
+function check2()
+{
+c2 = document.getElementById("c2").id;
+if(c2 == products[1])
+{
+document.getElementById("rimg").style.display = "block";
+}
+else
+{
+document.getElementById("wrg").style.display = "block";
+document.getElementById("wrgtxt").innerHTML = products[0];
+}
+document.getElementById("c1").disabled = true;
+document.getElementById("c2").disabled = true;
+document.getElementById("c3").disabled = true;
+}
+function check3()
+{
+c3 = document.getElementById("c3").id;
+if(c3 == products[1])
+{
+document.getElementById("rimg").style.display = "block";
+}
+else
+{
+document.getElementById("wrg").style.display = "block";
+document.getElementById("wrgtxt").innerHTML = products[0];
+}
+document.getElementById("c1").disabled = true;
+document.getElementById("c2").disabled = true;
+document.getElementById("c3").disabled = true;
+}
+</script>
+</head>
+<body onload="loadimg()">
+<script>
+ function onDeviceReady() {
+      document.removeEventListener('deviceready', onDeviceReady, false);
+      
+      // Set AdMobAds options:
+      admob.setOptions({
+        publisherId:          "pub-1458752546991864",  // Required
+        interstitialAdId:     "ca-app-pub-1458752546991864/9793281117",  // Optional
+        tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
+        tappxIdAndroid:       "",        // Optional
+        tappxShare:           0.5                                        // Optional
+      });
+      
+      // Start showing banners (atomatic when autoShowBanner is set to true)
+     // admob.createBannerView();
+	 admob.createBannerView({publisherId: "ca-app-pub-1458752546991864", interstitialAdId: "ca-app-pub-1458752546991864/3727524075"});
+      
+      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+      //admob.requestInterstitialAd();
+	 admob.requestInterstitialAd({publisherId: "ca-app-pub-1458752546991864/6848511430", interstitialAdId: "ca-app-pub-1458752546991864/9793281117"});
+    
+}
+    
+   // document.addEventListener("deviceready", onDeviceReady, false);
+	function myFunctionadd()
+	{
+	 admob.requestInterstitialAd({publisherId: "Publisher ID: pub-1458752546991864", interstitialAdId: "ca-app-pub-1458752546991864/9793281117"});	
+	}
+	function badd()
+	{
+		admob.createBannerView({publisherId: "ca-app-pub-1458752546991864", interstitialAdId: "ca-app-pub-1458752546991864/3727524075"})
+	admob.showBanner(admob.BannerSize.BANNER,admob.Position.TOP_APP);//show banner at the top of app 
+	}
+	//setInterval(myFunctionadd(), 30000);
+</script>
+<script>
+function abc()
+{
+var myParam = location.search.split('b=')[1];
+//alert(myParam);
+
+var a = parseInt(myParam);
+
+a = a + 1;
+//alert(a);
+document.getElementById("url").href = "clickcount.html?b=" + a;
+document.getElementById("rimg").style.display = "none";
+document.getElementById("wrg").style.display = "none";
+//location.reload();
+}
+</script>
+<div class="pcenter">
+<img id="img1" src="0.jpg" alt="">
+<form action="">
+<input type="radio" name="sex" id="c1" onclick="check1()"><p id="d1" ></p><br>
+<input type="radio" name="sex" id="c2" onclick="check2()"><p id="d2" ></p><br>
+<input type="radio" name="sex" id="c3" onclick="check3()"><p id="d3" ></p>
+</form>
+<img id="rimg" src="t5.png">
+<div id="wrg">
+<span class="wtxt">Correct answer is <span id="wrgtxt"></span></span>
+<img src="t3.png">
+</div>
+<button><a id="url" href="">NEXT</a></button> 
+</div>
+<script>
+//loadimg();
+</script>
+<script>
+if(m<=84)
+{
+rvalue();
+abc();
+}
+else
+{
+alert("End of Application");
+window.location = "apend.html";
+}
+	if(m % 15 == 1 && m > 12)
+	{
+	myFunctionadd();
+	}
+</script>
+</body>
+</html>
